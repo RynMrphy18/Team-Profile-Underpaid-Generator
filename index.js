@@ -8,6 +8,7 @@ const Manager = require("./lib/manager");
 
 const fs = require("fs");
 
+// manager function runs first and asks beginning questions
 function runInquirerManager() {
     const promptArray = [{
         type: "input",
@@ -36,7 +37,7 @@ function runInquirerManager() {
     .prompt(promptArray);
 }
 
-
+// manager runs once since there will be one manager, then runs engineer/intern as many as 4 times
 function runInquirer() {
     const promptArray = [{
         type: "input",
@@ -60,7 +61,7 @@ function runInquirer() {
     return inquirer
         .prompt(promptArray);
 }
-
+// if user selects engineer as title 
     function runInquirerEngineer() {
         const promptArray = [{
             type: "input",
@@ -71,7 +72,7 @@ function runInquirer() {
         return inquirer
         .prompt(promptArray);
     }
-
+// if user selects intern as title
     function runInquirerIntern() {
         const promptArray = [{
             type: "input",
@@ -86,12 +87,14 @@ function runInquirer() {
     runInquirerManager()
     .then (async function run() {
         let employeeArray = [];
+        // 4 times seems enough for testing purposes
         const maxTimes = 4;
         for (i = 0; i < maxTimes; i++) {
             const promise = new Promise((resolve, reject) => {
                 runInquirer()
                 .then(function ({ name, id, email, title}) {
 
+                    // pushes info into the array according to title selected within runInquirer()
                     if (title === "Manager") {
                         runInquirerManager().then(function ({ officeNumber }) {
                             this.employee = new Manager(name, id, email, officeNumber, title);
@@ -113,7 +116,9 @@ function runInquirer() {
                             employeeArray.push(employee);
                             resolve("done");
                         });
-                    } else if (title === "Finish team") {
+                    }
+                    // returns to menu if user selects Finish team 
+                    else if (title === "Finish team") {
                         return;
                     }
 
@@ -128,11 +133,13 @@ function runInquirer() {
             console.log(result)
         }
 
+        // grabs data inputted for unique titles to be inputted into html
         function showTitle(employee) {
             if (employee.title === "Manager") {
                 return `office number: ${employee.officeNumber}`;
             }
             if (employee.title === "Engineer") {
+                // github data grabbed and refernced to allow hyperlink
                 return `<a href= 'github.com/${employee.github}/'>github: ${employee.github}</a>`;
             }
             if (employee.title === "Intern") {
@@ -142,6 +149,7 @@ function runInquirer() {
         function writeHtml() {
             let html = "";
             for (j = 0; j < maxTimes; j++) {
+                // line 162 has reference for email link (entered here to not break string)
                 html += `<div class="card bg-dark justify-content-center align-items-center" style="width: 18rem;">
                     <div class="col card-header">
                         <h4>${employeeArray[j].name}</h4>
@@ -159,7 +167,7 @@ function runInquirer() {
             return html;
         }
 
-
+        // create html file
         let html = `< !DOCTYPE html >
                 <html lang="en">
                     <head>
@@ -213,12 +221,12 @@ function runInquirer() {
 
     console.log(html);
     const fs = require("fs");
+    // writes html info above into index.html in main directory
     fs.writeFile('index.html', html, function (err) {
         if (err) throw err;
         console.log('File is created successfully.');
     });
 }
-// html here
 
 
     )
