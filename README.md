@@ -43,4 +43,5 @@ Once max amount of users are inputted or user selects Finish Team HTML will be w
 
 Github repo link: https://github.com/RynMrphy18/Team-Profile-Underpaid-Generator
 HTML example link: file:///C:/Users/rmurp/Desktop/projects/challenge10/index.html
+
 Video walkthrough link: https://kapwi.ng/c/pgw0PlXneA
