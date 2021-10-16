@@ -38,7 +38,7 @@ Goes as written, option entered using if statements based off title
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 
-Once max amount of users are inputted or user selects Finish Team HTML will be written into index.html file
+Once max amount of users are inputted or user selects Finish Team HTML will be written into an index.html file
 
 
 Github repo link: https://github.com/RynMrphy18/Team-Profile-Underpaid-Generator
