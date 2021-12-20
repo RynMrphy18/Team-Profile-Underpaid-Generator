@@ -45,4 +45,4 @@ Github repo link: https://github.com/RynMrphy18/Team-Profile-Underpaid-Generator
 
 HTML example link: file:///C:/Users/rmurp/Desktop/projects/challenge10/index.html
 
-Video walkthrough link: https://kapwi.ng/c/pgw0PlXneA
+Video walkthrough link: https://drive.google.com/file/d/1hfIxhC1vNxcqUQLyI9OxOQQgbtuFJaYK/view?usp=sharing
