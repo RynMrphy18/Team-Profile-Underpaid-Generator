@@ -188,7 +188,7 @@ function runInquirer() {
             .card {
                                                 padding: 15px;
                 border-radius: 6px;
-                background-color: white;
+                background-color: black;
                 color: lightskyblue;
                 margin: 15px;
             }
